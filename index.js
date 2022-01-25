@@ -5,6 +5,12 @@ const bqProjectId = process.env.bqProjectId || null;
 const kgKey = process.env.kgKey || null;
 const gServiceAccount = JSON.parse(process.env.gServiceAccount);
 
+// Create bigQuery Obj
+const bigQuery = new BigQuery({
+    credentials: gServiceAccount,
+    projectId: bqProjectId
+});
+
 exports.biggieCalls = (req, res) => {
     try {
         // Check to see if it is a POST Req
