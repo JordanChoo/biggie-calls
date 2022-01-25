@@ -42,7 +42,7 @@ module.exports = {
                     recording: req.body.recording || null,
                     recording_duration: req.body.recording_duration || null,
                     recording_player: req.body.recording_player || null,
-                    start_time: req.body.start_time || null,
+                    start_time: req.body.start_time.slice(0,-6) || null,
                     tracking_phone_number: req.body.tracking_phone_number || null,
                     voicemail: req.body.voicemail || null,
                 });
