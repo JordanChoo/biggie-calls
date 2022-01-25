@@ -4,7 +4,7 @@
   "description": "CallRail phone calls to BigQuery",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "go": "functions-framework --target=biggieCalls"
   },
   "author": "Jordan Choo",
   "license": "ISC",
