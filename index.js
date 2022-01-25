@@ -1,6 +1,6 @@
 // Set ENV variables
 require('dotenv').config();
-const bqDataset = process.env.dataset || null;
+const bqDataset = process.env.bqDataset || null;
 const bgBiggieCallsTable = process.env.bgBiggieCallsTable || null;
 const bqProjectId = process.env.bqProjectId || null;
 const kgKey = process.env.kgKey || null;
