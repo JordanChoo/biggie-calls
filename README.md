@@ -87,3 +87,6 @@ Now that your function is deplyed, the next step is to add it to CallRail as a w
 
 ## Have questions?
 If you have any questions feel free to contact me at [@JordanChoo](https://twitter.com/jordanchoo).
+
+## License
+GNU GENERAL PUBLIC LICENSE: https://www.gnu.org/licenses/gpl-3.0-standalone.html
