@@ -9,6 +9,7 @@
   "author": "Jordan Choo",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/bigquery": "^5.10.0",
     "dotenv": "^14.3.0"
   }
 }
