@@ -54,5 +54,14 @@ module.exports = {
             console.log(e);
             res.status(500).send();
         }
+    },
+
+    fullCallDetails: async() => {
+        try {
+            
+        } catch (e) {
+            console.log(e);
+            return false;   
+        }
     }
 }
