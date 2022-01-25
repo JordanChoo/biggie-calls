@@ -44,7 +44,7 @@ module.exports = {
                     recording_player: req.body.recording_player || null,
                     start_time: req.body.start_time || null,
                     tracking_phone_number: req.body.tracking_phone_number || null,
-                    tracking_phone_number:req.body. tracking_phone_number || null,
+                    voicemail: req.body.voicemail || null,
                 });
             console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
             res.status(200).send();
