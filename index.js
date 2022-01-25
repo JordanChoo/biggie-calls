@@ -47,6 +47,7 @@ module.exports = {
                     tracking_phone_number:req.body. tracking_phone_number || null,
                 });
             console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
+            res.status(200).send();
 
         } catch (e) {
             console.log(`CallRail Call ${req.body.id} failed`);
