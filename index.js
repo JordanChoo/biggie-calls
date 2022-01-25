@@ -5,6 +5,9 @@ const bqProjectId = process.env.bqProjectId || null;
 const kgKey = process.env.kgKey || null;
 const gServiceAccount = JSON.parse(process.env.gServiceAccount);
 
+// Import NPM packages
+const {BigQuery} = require('@google-cloud/bigquery');
+
 // Create bigQuery Obj
 const bigQuery = new BigQuery({
     credentials: gServiceAccount,
