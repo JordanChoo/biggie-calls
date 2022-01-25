@@ -52,6 +52,7 @@ module.exports = {
         } catch (e) {
             console.log(`CallRail Call ${req.body.id} failed`);
             console.log(e);
+            res.status(500).send();
         }
     }
 }
