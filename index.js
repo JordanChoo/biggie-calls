@@ -8,6 +8,7 @@ const gServiceAccount = JSON.parse(process.env.gServiceAccount);
 
 // Import NPM packages
 const {BigQuery} = require('@google-cloud/bigquery');
+const axios = require('axios');
 
 // Create bigQuery Obj
 const bigQuery = new BigQuery({
@@ -44,7 +45,7 @@ module.exports = {
                     recording_player: req.body.recording_player || null,
                     start_time: req.body.start_time.slice(0,-6) || null,
                     tracking_phone_number: req.body.tracking_phone_number || null,
-                    voicemail: req.body.voicemail || null,
+                    voicemail: req.body.voicemail || null
                 });
             console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
             res.status(200).send();
@@ -56,9 +57,18 @@ module.exports = {
         }
     },
 
-    fullCallDetails: async() => {
+    fullCallDetails: async(callId) => {
         try {
-            
+            var options = {
+                'method': 'POST',
+                'url': `https://api.callrail.com/v3/a/${callRailAccountId}/calls/${callId}.json?fields=keywords_spotted`,
+                'headers': {
+                    'Authorization': `Token token=${process.env.callRailToken}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+    
+            let callData = await axios.request(options);
         } catch (e) {
             console.log(e);
             return false;   
