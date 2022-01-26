@@ -27,7 +27,7 @@ module.exports = {
             // Make sure that the kgKey matches the env kgKey
             if(req.query.kgKey != kgKey) return res.status(401).send('Not authorized');
 
-            var callData = modules.exports.fullCallDetails(req.body.id);
+            var callData = module.exports.fullCallDetails(req.body.id);
 
             // Insert call data into BigQuery
             await bigQuery
