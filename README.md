@@ -32,6 +32,57 @@ The first step is to create the a table in BigQuery where each call will be save
     start_time DATETIME,
     tracking_phone_number STRING,
     voicemail BOOLEAN,
+    call_type STRING,
+    company_id STRING,
+    company_name STRING,
+    company_time_zone STRING,
+    created_at DATETIME,
+    device_type STRING,
+    first_call BOOLEAN,
+    formatted_call_type STRING,
+    formatted_customer_location STRING,
+    formatted_business_phone_number STRING,
+    formatted_customer_name STRING,
+    prior_calls INT64,
+    formatted_customer_name_or_phone_number ,
+    formatted_customer_phone_number STRING,
+    formatted_duration STRING,
+    formatted_tracking_phone_number STRING,
+    formatted_tracking_source STRING,
+    formatted_value STRING,
+    good_lead_call_id INT64,
+    good_lead_call_time STRING,
+    lead_status STRING,
+    note STRING,
+    source STRING,
+    source_name STRING,
+    total_calls INT64,
+    value STRING,
+    tracker_id STRING,
+    keywords STRING,
+    medium STRING,
+    campaign STRING,
+    referring_url STRING,
+    landing_page_url STRING,
+    last_requested_url STRING,
+    referrer_domain STRING,
+    utm_source STRING,
+    utm_medium STRING,
+    utm_term STRING,
+    utm_content STRING,
+    utm_campaign STRING,
+    utma STRING,
+    utmb STRING,
+    utmc STRING,
+    utmv STRING,
+    utmz STRING,
+    ga STRING,
+    gclid STRING,
+    fbclid STRING,
+    msclkid STRING,
+    transcription STRING,
+    conversational_transcript STRING,
+    agent_email STRING
     ) PARTITION BY DATE(start_time)
 ```
 
@@ -63,6 +114,8 @@ Clicking the dropdown text named `Runtime, build, connections and security setti
 - `bgBiggieCallsTable` = If you used the default setting in the provided SQL statement this value will be `RAW_biggie_calls`
 - `bqProjectId` = The project ID that the Biggie Calls table is located in. Find [your project ID by following these steps](https://support.google.com/googleapi/answer/7014113?hl=en)
 - `gServiceAccount` = Your Google Cloud Service Account Key. Find or create [your service account by following these steps](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#getting_a_service_account_key).
+- `callRailAccountId` = Your CallRail account ID. You can [find your CallRail account ID by following these instructions](https://support.callrail.com/hc/en-us/articles/207684826-Your-Account-Number).
+- `callRailApiToken` = Your CallRail account's API token. You can follow [CallRail's documentation on how to generate an API token here](https://support.callrail.com/hc/en-us/articles/201211143-CallRail-s-API-Documentation).
 - `kgKey` = This is your make shift security key that _must_ be present as a URL paramter for the function to run and should be kept as a secret. 
 
 #### Step 2: Code
