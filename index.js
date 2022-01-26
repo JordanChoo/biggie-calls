@@ -5,6 +5,7 @@ const bgBiggieCallsTable = process.env.bgBiggieCallsTable || null;
 const bqProjectId = process.env.bqProjectId || null;
 const kgKey = process.env.kgKey || null;
 const gServiceAccount = JSON.parse(process.env.gServiceAccount);
+const callRailAccountId = process.env.callRailAccountId || null;
 
 // Import NPM packages
 const {BigQuery} = require('@google-cloud/bigquery');
