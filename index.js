@@ -6,6 +6,7 @@ const bqProjectId = process.env.bqProjectId || null;
 const kgKey = process.env.kgKey || null;
 const gServiceAccount = JSON.parse(process.env.gServiceAccount);
 const callRailAccountId = process.env.callRailAccountId || null;
+const callRailToken = process.env.callRailToken || null;
 
 // Import NPM packages
 const {BigQuery} = require('@google-cloud/bigquery');
@@ -64,7 +65,7 @@ module.exports = {
                 'method': 'POST',
                 'url': `https://api.callrail.com/v3/a/${callRailAccountId}/calls/${callId}.json?fields=keywords_spotted`,
                 'headers': {
-                    'Authorization': `Token token=${process.env.callRailToken}`,
+                    'Authorization': `Token token=${callRailToken}`,
                     'Content-Type': 'application/json'
                 }
             };
