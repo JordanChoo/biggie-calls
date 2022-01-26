@@ -27,7 +27,7 @@ module.exports = {
             // Make sure that the kgKey matches the env kgKey
             if(req.query.kgKey != kgKey) return res.status(401).send('Not authorized');
 
-            var callData = module.exports.fullCallDetails(req.body.id);
+            var callData = await module.exports.fullCallDetails(req.body.id);
 
             // Insert call data into BigQuery
             await bigQuery
@@ -123,7 +123,8 @@ module.exports = {
                 }
             };
     
-            return await axios.request(options);
+            var callDetails = await axios.request(options);
+            return callDetails.data;
 
         } catch (e) {
             console.log(e);
