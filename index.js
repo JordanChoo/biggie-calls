@@ -62,7 +62,7 @@ module.exports = {
     fullCallDetails: async(callId) => {
         try {
             var options = {
-                'method': 'POST',
+                'method': 'GET',
                 'url': `https://api.callrail.com/v3/a/${callRailAccountId}/calls/${callId}.json?fields=keywords_spotted`,
                 'headers': {
                     'Authorization': `Token token=${callRailApiToken}`,
