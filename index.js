@@ -87,7 +87,6 @@ module.exports = {
                     source: req.body.source || null,
                     source_name: req.body.source_name || null,
                     start_time: req.body.start_time.slice(0,-6) || null,
-                    timestamp: req.body.timestamp || null,
                     total_calls: req.body.total_calls || null,
                     tracker_resource_id: req.body.tracker_resource_id || null,
                     tracking_phone_number: req.body.tracking_phone_number || null,
