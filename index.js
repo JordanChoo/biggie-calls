@@ -78,8 +78,6 @@ module.exports = {
                     good_lead_call_time: req.body.good_lead_call_time || null,
                     keypad_entries: req.body.keypad_entries || null,
                     keywords: req.body.keywords || null,
-                    keywords_spotted: req.body.keywords_spotted || null,
-                    kissmetrics_id: req.body.kissmetrics_id || null,
                     landing_page_url: req.body.landing_page_url || null,
                     landingpage: req.body.landingpage || null,
                     last_requested_url: req.body.last_requested_url || null,
@@ -101,7 +99,6 @@ module.exports = {
                     score: req.body.score || null,
                     source: req.body.source || null,
                     source_name: req.body.source_name || null,
-                    speaker_percent: req.body.speaker_percent || null,
                     start_time: req.body.start_time.slice(0,-6) || null,
                     tag: req.body.tag || null,
                     timestamp: req.body.timestamp || null,
@@ -121,8 +118,7 @@ module.exports = {
                     utmv: req.body.utmv || null,
                     utmz: req.body.utmz || null,
                     value: req.body.value || null,
-                    voicemail: req.body.voicemail || null,
-                    waveforms: req.body.waveforms || null,
+                    voicemail: req.body.voicemail || null
                 });
             console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
             res.status(200).send();
