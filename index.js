@@ -82,7 +82,6 @@ module.exports = {
                     recording_player: req.body.recording_player || null,
                     referrer: req.body.referrer || null,
                     referrer_domain: req.body.referrer_domain || null,
-                    referrermedium: req.body.referrermedium || null,
                     referring_url: req.body.referring_url || null,
                     resource_id: req.body.resource_id || null,
                     source: req.body.source || null,
