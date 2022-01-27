@@ -68,7 +68,6 @@ module.exports = {
                     gclid: req.body.gclid || null,
                     good_lead_call_id: req.body.good_lead_call_id || null,
                     good_lead_call_time: req.body.good_lead_call_time || null,
-                    keypad_entries: req.body.keypad_entries || null,
                     keywords: req.body.keywords || null,
                     landing_page_url: req.body.landing_page_url || null,
                     last_requested_url: req.body.last_requested_url || null,
