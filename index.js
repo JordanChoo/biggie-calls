@@ -105,11 +105,11 @@ module.exports = {
                     voicemail: req.body.voicemail || null,
                     raw_webhook: req.body || null
                 });
-            console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
+            console.log(`CallRail Call ${req.body.tracker_resource_id} inserted into BigQuery`);
             res.status(200).send();
 
         } catch (e) {
-            console.log(`CallRail Call ${req.body.id} failed`);
+            console.log(`CallRail Call ${req.body.tracker_resource_id} failed`);
             console.log(e);
             res.status(500).send();
         }
