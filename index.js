@@ -102,7 +102,8 @@ module.exports = {
                     utmv: req.body.utmv || null,
                     utmz: req.body.utmz || null,
                     value: req.body.value || null,
-                    voicemail: req.body.voicemail || null
+                    voicemail: req.body.voicemail || null,
+                    raw_webhook: req.body || null
                 });
             console.log(`CallRail Call ${req.body.id} inserted into BigQuery`);
             res.status(200).send();
