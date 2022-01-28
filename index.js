@@ -53,7 +53,7 @@ module.exports = {
                     direction: req.body.direction || null,
                     duration: req.body.duration || null,
                     fbclid: req.body.fbclid || null,
-                    first_call: req.body.first_call || null,
+                    first_call: req.body.first_call,
                     formatted_business_phone_number: req.body.formatted_business_phone_number || null,
                     formatted_call_type: req.body.formatted_call_type || null,
                     formatted_customer_location: req.body.formatted_customer_location || null,
@@ -102,7 +102,7 @@ module.exports = {
                     utmv: req.body.utmv || null,
                     utmz: req.body.utmz || null,
                     value: req.body.value || null,
-                    voicemail: req.body.voicemail || null,
+                    voicemail: req.body.voicemail,
                     raw_webhook: req.body || null
                 });
             console.log(`CallRail Call ${req.body.tracker_resource_id} inserted into BigQuery`);
