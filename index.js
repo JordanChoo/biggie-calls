@@ -103,7 +103,7 @@ module.exports = {
                     utmz: req.body.utmz || null,
                     value: req.body.value || null,
                     voicemail: req.body.voicemail || false,
-                    // raw_webhook: req.body || null
+                    raw_webhook: JSON.stringify(req.body) || null
                 });
             console.log(`CallRail Call ${req.body.tracker_resource_id} inserted into BigQuery`);
             res.status(200).send();
