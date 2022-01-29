@@ -33,7 +33,7 @@ module.exports = {
                 .table(bgBiggieCallsTable)
                 .insert({
                     agent_email: req.body.agent_email || null,
-                    answered: req.body.answered || null,
+                    answered: req.body.answered,
                     business_phone_number: req.body.business_phone_number || null,
                     call_type: req.body.call_type || null,
                     campaign: req.body.campaign || null,
@@ -53,7 +53,7 @@ module.exports = {
                     direction: req.body.direction || null,
                     duration: req.body.duration || null,
                     fbclid: req.body.fbclid || null,
-                    first_call: req.body.first_call,
+                    first_call: req.body.first_call || false,
                     formatted_business_phone_number: req.body.formatted_business_phone_number || null,
                     formatted_call_type: req.body.formatted_call_type || null,
                     formatted_customer_location: req.body.formatted_customer_location || null,
@@ -102,15 +102,15 @@ module.exports = {
                     utmv: req.body.utmv || null,
                     utmz: req.body.utmz || null,
                     value: req.body.value || null,
-                    voicemail: req.body.voicemail,
-                    raw_webhook: req.body || null
+                    voicemail: req.body.voicemail || false,
+                    // raw_webhook: req.body || null
                 });
             console.log(`CallRail Call ${req.body.tracker_resource_id} inserted into BigQuery`);
             res.status(200).send();
 
         } catch (e) {
             console.log(`CallRail Call ${req.body.tracker_resource_id} failed`);
-            console.log(e);
+            console.log(JSON.stringify(e));
             res.status(500).send();
         }
     }
