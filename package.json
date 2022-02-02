@@ -4,7 +4,8 @@
   "description": "CallRail phone calls to BigQuery",
   "main": "index.js",
   "scripts": {
-    "go": "functions-framework --target=biggieCalls"
+    "go": "functions-framework --target=biggieCalls",
+    "squad": "functions-framework --target=squad"
   },
   "author": "Jordan Choo",
   "license": "GNU-GPLv3",
