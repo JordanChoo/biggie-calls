@@ -211,7 +211,7 @@ module.exports = {
                         utmz: call.utmz,
                         value: call.value,
                         voicemail: call.voicemail,
-                        body: call.req.body
+                        raw_webhook: JSON.stringify(call)
                     });
                 };
 
@@ -233,6 +233,7 @@ module.exports = {
         res.status(200).send();
     } catch (e) {
         console.log(`CallRail backfill failed`);
+        console.log(e);
         console.log(JSON.stringify(e));
         res.status(500).send();
     }
