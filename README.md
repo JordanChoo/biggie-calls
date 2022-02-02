@@ -61,7 +61,7 @@ The first step is to create the a table in BigQuery where each call will be save
         note STRING,
         person_resource_id STRING,
         prior_calls INT64,
-        recording INT64,
+        recording STRING,
         recording_duration INT64,
         recording_player STRING,
         referrer STRING,
