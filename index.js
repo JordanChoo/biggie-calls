@@ -122,7 +122,7 @@ module.exports = {
         // Make sure that the kgKey matches the env kgKey
         if(req.query.kgKey != kgKey) return res.status(401).send('Not authorized');
 
-        const allCalls = [];
+        var allCalls = [];
 
         // Axios get all all calls from call rail
             // Run recursively until all calls are returned
@@ -141,7 +141,7 @@ module.exports = {
                 let results = await axios.request(options);
     
                 // Push data to allCalls array
-                allCalls.push(results.data.calls);
+                allCalls = allCalls.concat(results.data.calls);
 
                 // End the loop if it is the last page
                 if(results.data.calls.length < 250){
@@ -152,7 +152,7 @@ module.exports = {
                 page++;
             };
         // Save to BigQuery
-
+            
         // Send success message
         res.status(200).send();
     } catch (e) {
