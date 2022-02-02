@@ -196,7 +196,7 @@ module.exports = {
                         source_name: call.source_name,
                         start_time: call.start_time.slice(0,-6),
                         total_calls: call.total_calls,
-                        racker_resource_id: call.ttracker_id,
+                        tracker_resource_id: call.tracker_id,
                         tracking_phone_number: call.tracking_phone_number,
                         transcription: call.transcription,
                         utm_campaign: call.utm_campaign,
