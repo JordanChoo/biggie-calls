@@ -126,19 +126,31 @@ module.exports = {
 
         // Axios get all all calls from call rail
             // Run recursively until all calls are returned
-            var options = {
-                'method': 'GET',
-                'url': `https://api.callrail.com/v3/a/${callRailAccountId}/calls.json?fields=call_type,company_id,company_name,company_time_zone,created_at,device_type,first_call,formatted_call_type,formatted_customer_location,formatted_business_phone_number,formatted_customer_name,prior_calls,formatted_customer_name_or_phone_number,formatted_customer_phone_number,formatted_duration,formatted_tracking_phone_number,formatted_tracking_source,formatted_value,good_lead_call_id,good_lead_call_time,lead_status,note,source,source_name,total_calls,value,tracker_id,keywords,medium,campaign,referring_url,landing_page_url,last_requested_url,referrer_domain,utm_source,utm_medium,utm_term,utm_content,utm_campaign,utma,utmb,utmc,utmv,utmz,ga,gclid,fbclid,msclkid,keywords_spotted,agent_email&date_range=all_time&per_page=250`,
-                'headers': {
-                    'Authorization': `Bearer ${callRailApiToken}`,
-                    'Content-Type': 'application/json'
-                }
+            while(true){
+                let page = 1;
+                var options = {
+                    'method': 'GET',
+                    'url': `https://api.callrail.com/v3/a/${callRailAccountId}/calls.json?fields=call_type,company_id,company_name,company_time_zone,created_at,device_type,first_call,formatted_call_type,formatted_customer_location,formatted_business_phone_number,formatted_customer_name,prior_calls,formatted_customer_name_or_phone_number,formatted_customer_phone_number,formatted_duration,formatted_tracking_phone_number,formatted_tracking_source,formatted_value,good_lead_call_id,good_lead_call_time,lead_status,note,source,source_name,total_calls,value,tracker_id,keywords,medium,campaign,referring_url,landing_page_url,last_requested_url,referrer_domain,utm_source,utm_medium,utm_term,utm_content,utm_campaign,utma,utmb,utmc,utmv,utmz,ga,gclid,fbclid,msclkid,keywords_spotted,agent_email&date_range=all_time&per_page=250&page=${page}`,
+                    'headers': {
+                        'Authorization': `Bearer ${callRailApiToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                
+                // Run the Axios function
+                let results = await axios.request(options);
+    
+                // Push data to allCalls array
+                allCalls.push(results.data.calls);
+
+                // End the loop if it is the last page
+                if(results.data.calls.length < 250){
+                    break;
+                };
+
+                // Increment the page counter
+                page++;
             };
-
-            let results = await axios.request(options);
-
-            // Push data to allCalls array
-            allCalls.push(results.data.calls);
         // Save to BigQuery
 
         // Send success message
