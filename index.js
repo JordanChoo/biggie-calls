@@ -120,5 +120,12 @@ module.exports = {
         if(req.method != 'GET') return res.status(401).send('Not authorized');
         // Make sure that the kgKey matches the env kgKey
         if(req.query.kgKey != kgKey) return res.status(401).send('Not authorized');
+
+        // Axios get all all calls from call rail
+            // Run recursively until all calls are returned
+
+        // Save to BigQuery
+
+        // Send success message
     }
 }
