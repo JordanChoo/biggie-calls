@@ -139,9 +139,81 @@ module.exports = {
                 
                 // Run the Axios function
                 let results = await axios.request(options);
-    
-                // Push data to allCalls array
-                allCalls = allCalls.concat(results.data.calls);
+
+                // Format and push data to allCalls array
+                for(call of results.data.calls){
+                    allCalls.push({
+                        agent_email: call.agent_email,
+                        answered: call.answered,
+                        business_phone_number: call.business_phone_number,
+                        call_type: call.call_type,
+                        campaign: call.campaign,
+                        company_id: call.company_id,
+                        company_name: call.company_name,
+                        company_id: call.company_resource_id,
+                        company_time_zone: call.company_time_zone,
+                        conversational_transcript: call.conversational_transcript,
+                        created_at: call.created_at.slice(0,-6),
+                        customer_city: call.customer_city,
+                        customer_country: call.customer_country,
+                        customer_name: call.customer_name,
+                        customer_phone_number: call.customer_phone_number,
+                        customer_state: call.customer_state,
+                        device_type: call.device_type,
+                        direction: call.direction,
+                        duration: call.duration,
+                        fbclid: call.fbclid,
+                        first_call: call.first_call,
+                        formatted_business_phone_number: call.formatted_business_phone_number,
+                        formatted_call_type: call.formatted_call_type,
+                        formatted_customer_location: call.formatted_customer_location,
+                        formatted_customer_name: call.formatted_customer_name,
+                        formatted_customer_name_or_phone_number: call.formatted_customer_name_or_phone_number,
+                        formatted_customer_phone_number: call.formatted_customer_phone_number,
+                        formatted_duration: call.formatted_duration,
+                        formatted_tracking_phone_number: call.formatted_tracking_phone_number,
+                        formatted_tracking_source: call.formatted_tracking_source,
+                        formatted_value: call.formatted_value,
+                        ga: call.ga,
+                        gclid: call.gclid,
+                        good_lead_call_id: call.good_lead_call_id,
+                        good_lead_call_time: call.good_lead_call_time,
+                        keywords: call.keywords,
+                        landing_page_url: call.landing_page_url,
+                        last_requested_url: call.last_requested_url,
+                        lead_status: call.lead_status,
+                        medium: call.medium,
+                        msclkid: call.msclkid,
+                        note: call.note,
+                        prior_calls: call.prior_calls,
+                        recording: call.recording,
+                        recording_duration: call.recording_duration,
+                        recording_player: call.recording_player,
+                        referrer_domain: call.referrer_domain,
+                        referring_url: call.referring_url,
+                        id: call.resource_id,
+                        source: call.source,
+                        source_name: call.source_name,
+                        start_time: call.start_time.slice(0,-6),
+                        total_calls: call.total_calls,
+                        tracker_id: call.tracker_resource_id,
+                        tracking_phone_number: call.tracking_phone_number,
+                        transcription: call.transcription,
+                        utm_campaign: call.utm_campaign,
+                        utm_content: call.utm_content,
+                        utm_medium: call.utm_medium,
+                        utm_source: call.utm_source,
+                        utm_term: call.utm_term,
+                        utma: call.utma,
+                        utmb: call.utmb,
+                        utmc: call.utmc,
+                        utmv: call.utmv,
+                        utmz: call.utmz,
+                        value: call.value,
+                        voicemail: call.voicemail,
+                        body: call.req.body
+                    });
+                };
 
                 // End the loop if it is the last page
                 if(results.data.calls.length < 250){
