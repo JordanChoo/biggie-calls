@@ -113,5 +113,12 @@ module.exports = {
             console.log(JSON.stringify(e));
             res.status(500).send();
         }
+    },
+
+    squad: async(req,res) => {
+        // Check to see if it is a GET Req
+        if(req.method != 'GET') return res.status(401).send('Not authorized');
+        // Make sure that the kgKey matches the env kgKey
+        if(req.query.kgKey != kgKey) return res.status(401).send('Not authorized');
     }
 }
