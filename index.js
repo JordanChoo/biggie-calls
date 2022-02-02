@@ -116,6 +116,7 @@ module.exports = {
     },
 
     squad: async(req,res) => {
+        try {
         // Check to see if it is a GET Req
         if(req.method != 'GET') return res.status(401).send('Not authorized');
         // Make sure that the kgKey matches the env kgKey
@@ -127,5 +128,9 @@ module.exports = {
         // Save to BigQuery
 
         // Send success message
+    } catch (e) {
+        console.log(`CallRail backfill failed`);
+        console.log(JSON.stringify(e));
+        res.status(500).send();
     }
 }
