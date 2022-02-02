@@ -224,8 +224,12 @@ module.exports = {
                 page++;
             };
         // Save to BigQuery
-            
+        await bigQuery
+            .dataset(bqDataset)
+            .table(bgBiggieCallsTable)
+            .insert(allCalls);
         // Send success message
+        console.log(`${allCalls.length} calls from CallRail backlogged into BigQuery`);
         res.status(200).send();
     } catch (e) {
         console.log(`CallRail backfill failed`);
