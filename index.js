@@ -224,13 +224,19 @@ module.exports = {
                     // Increment the page counter
                     page++;
                 };
-            // Save to BigQuery
-            await bigQuery
+
+            // Break the allCalls data into chunks of 5000
+            var chunkedCalls = _.chunk(allCalls, 5000);
+
+            for (const chunkedCall of chunkedCalls) {
+                // Save to BigQuery
+                await bigQuery
                 .dataset(bqDataset)
                 .table(bgBiggieCallsTable)
-                .insert(allCalls);
+                .insert(chunkedCall);
+                console.log(`${chunkedCall.length} calls from CallRail backlogged into BigQuery`);
+            };
             // Send success message
-            console.log(`${allCalls.length} calls from CallRail backlogged into BigQuery`);
             res.status(200).send();
         } catch (e) {
             console.log(`CallRail backfill failed`);
