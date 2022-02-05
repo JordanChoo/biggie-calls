@@ -225,8 +225,8 @@ module.exports = {
                     page++;
                 };
 
-            // Break the allCalls data into chunks of 5000
-            var chunkedCalls = _.chunk(allCalls, 5000);
+            // Break the allCalls data into chunks of 500
+            var chunkedCalls = _.chunk(allCalls, 500);
 
             for (const chunkedCall of chunkedCalls) {
                 // Save to BigQuery
