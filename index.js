@@ -11,6 +11,7 @@ const callRailApiToken = process.env.callRailApiToken || null;
 // Import NPM packages
 const {BigQuery} = require('@google-cloud/bigquery');
 const axios = require('axios');
+const _ = require('lodash');
 
 // Create bigQuery Obj
 const bigQuery = new BigQuery({
